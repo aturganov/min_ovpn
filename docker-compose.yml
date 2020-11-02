@@ -1,0 +1,7 @@
+version: "3.5"
+    services: 
+        min_vpn:
+            build:
+                context: .
+                dockerfile: dockerfile
+            network_mode: bridge
