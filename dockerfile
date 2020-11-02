@@ -7,4 +7,4 @@ RUN apk update && apk add openvpn
 #RUN chmod 755 /docker-start.sh
 
 EXPOSE 1194
-CMD ["/docker-start.sh"]
+# CMD ["/docker-start.sh"]

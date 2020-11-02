@@ -1,9 +1,9 @@
 version: "3.5"
-    services: 
-        min_vpn:
-            build:
-                context: .
-                dockerfile: dockerfile
-            cap_add:
-                - NET_ADMIN
-            network_mode: bridge
+services: 
+    min_vpn:
+        build:
+            context: .
+            dockerfile: dockerfile
+        cap_add:
+            - NET_ADMIN
+        # network_mode: bridge
