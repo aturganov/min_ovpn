@@ -6,4 +6,8 @@ services:
             dockerfile: dockerfile
         cap_add:
             - NET_ADMIN
-        # network_mode: bridge
+        container_name: vpn
+        
+        tty: true    # else exited code 0
+
+        network_mode: bridge
