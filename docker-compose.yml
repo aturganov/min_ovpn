@@ -7,7 +7,9 @@ services:
         cap_add:
             - NET_ADMIN
         container_name: vpn
-        
+        ports:
+            - "1194:1194/tcp"
+        restart: always
         tty: true    # else exited code 0
 
         network_mode: bridge

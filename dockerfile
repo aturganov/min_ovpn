@@ -11,6 +11,11 @@ ADD start.sh /root/
 ADD server.conf /etc/openvpn
 RUN chmod 755 /root/start.sh
 
+RUN mkdir -p /dev/net && \
+    mknod /dev/net/tun c 10 200 && \
+    chmod 600 /dev/net/tun
+
+
 
 EXPOSE 1194
 
