@@ -1,15 +1,12 @@
-version: "3.5"
-services: 
-    min_vpn:
-        build:
-            context: .
-            dockerfile: dockerfile
-        cap_add:
-            - NET_ADMIN
-        container_name: vpn
-        ports:
-            - "1194:1194/tcp"
-        restart: always
-        tty: true    # else exited code 0
-
-        network_mode: bridge
+version: '2.1'
+services:
+  openvpn:
+    cap_add:
+      - NET_ADMIN
+    build: .
+    container_name: openvpn
+    ports:
+      - "1194:1194/tcp"
+    restart: always
+    volumes:
+     - ./data:/etc/openvpn
