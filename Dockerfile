@@ -15,7 +15,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposi
 ENV OPENVPN /etc/openvpn
 ENV EASYRSA /usr/share/easy-rsa
 ENV EASYRSA_PKI $OPENVPN/pki
-ENV EASYRSA_VARS_FILE $OPENVPN/vars
+# ENV EASYRSA_VARS_FILE $OPENVPN/vars  --> Kalemanna error
 
 # Prevents refused client connection because of an expired CRL
 ENV EASYRSA_CRL_DAYS 3650

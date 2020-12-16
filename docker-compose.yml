@@ -1,4 +1,5 @@
-version: '2.1'
+version: '2.5'
+# version: '3.5' с новой версией не работает
 services:
   openvpn:
     cap_add:
