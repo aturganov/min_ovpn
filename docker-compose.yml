@@ -12,3 +12,5 @@ services:
     volumes:
      - ./data:/etc/openvpn
     network_mode: bridge
+    environment: 
+      - TZ=Europe/Moscow

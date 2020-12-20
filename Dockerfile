@@ -6,10 +6,16 @@ FROM alpine:latest
 LABEL maintainer="Jonathan Tey <jontey88@gmail.com>"
 
 # Testing: pamtester
+ENV TZ Europe/Moscow
+
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-    apk add --update openvpn iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester && \
+    apk add --update openvpn iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester tzdata && \
     ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
-    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
+    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/* 
+
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ >/etc/timezone 
+# && \
+    # apk del tzdata
 
 # Needed by scripts
 ENV OPENVPN /etc/openvpn
