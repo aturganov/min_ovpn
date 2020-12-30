@@ -12,6 +12,16 @@ docker-compose run --rm openvpn easyrsa build-client-full CLIENT_NAME nopass
 
 docker-compose run --rm openvpn ovpn_getclient CLIENT_NAME > CLIENT_NAME.ovpn
 ```
+Examples:
+  
+docker-compose run --rm openvpn ovpn_genconfig -u tcp://109.68.214.196:1194 -d -b -c -a SHA1 -C AES-256-CBC -N -p "route 192.168.100.0 255.255.255.0"
+docker-compose run --rm openvpn ovpn_initpki nopass
+docker-compose run --rm openvpn easyrsa build-client-full home_router nopass
+docker-compose run --rm openvpn easyrsa build-client-full dasha_router nopass
+docker-compose run --rm openvpn easyrsa build-client-full mobile_router nopass
+
+--Get all files
+docker-compose run --rm openvpn ovpn_getclient_all
 
 ### On Mikrotik
 
